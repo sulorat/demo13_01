@@ -33,7 +33,7 @@
 										<TextBlock Text="{Binding ServiceTitle}" Name="TitleTextBlock"/>
 										<StackPanel Orientation="Horizontal">
 											<TextBlock Text="{Binding ServiceCost}" Name="CostTextBlock"/>
-											<TextBlock Text="{Binding ServiceDuration}" Margin="20,0,0,0" Name="DutationTextBlock"/>
+											<TextBlock Text="{Binding ServiceDuration}" Margin="20,0,0,0" />
 										</StackPanel>
 									</StackPanel>
 								</Border>
