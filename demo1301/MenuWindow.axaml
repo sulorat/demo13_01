@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="demo1301.MenuWindow"
+		x:CompileBindings="False"
+        Title="MenuWindow">
+	<DockPanel>
+		<Border DockPanel.Dock="Top">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<TextBox Name="SearchTextBox" Margin="10"/>
+				<ComboBox Name="FilterComboBox" Margin="10"/>
+				<ComboBox Name="SortComboBox" Margin="10"/>
+			</StackPanel>
+		</Border>
+		<Border DockPanel.Dock="Bottom">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+				<Button/>
+			</StackPanel>
+		</Border>
+		<Border DockPanel.Dock="Left">
+			<ListBox Name="ServiceListBox">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border>
+							<StackPanel Orientation="Horizontal">
+								<Border>
+									<Image></Image>
+								</Border>
+								<Border>
+									<StackPanel >
+										<TextBlock Text="{Binding ServiceTitle}" Name="TitleTextBlock"/>
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="{Binding ServiceCost}" Name="CostTextBlock"/>
+											<TextBlock Text="{Binding ServiceDuration}" Margin="20,0,0,0" Name="DutationTextBlock"/>
+										</StackPanel>
+									</StackPanel>
+								</Border>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Border>
+	</DockPanel>
+</Window>

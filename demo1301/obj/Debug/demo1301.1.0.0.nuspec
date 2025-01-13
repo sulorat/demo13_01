@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>demo1301</id>
+    <version>1.0.0</version>
+    <authors>demo1301</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Avalonia" version="11.2.1" exclude="Build,Analyzers" />
+        <dependency id="Avalonia.Desktop" version="11.2.1" exclude="Build,Analyzers" />
+        <dependency id="Avalonia.Diagnostics" version="11.2.1" exclude="Build,Analyzers" />
+        <dependency id="Avalonia.Fonts.Inter" version="11.2.1" exclude="Build,Analyzers" />
+        <dependency id="Avalonia.Themes.Fluent" version="11.2.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="8.0.8" exclude="Build,Analyzers" />
+        <dependency id="Npgsql.EntityFrameworkCore.PostgreSQL" version="8.0.8" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Class_Student\source\repos\demo1301\demo1301\bin\Debug\net8.0\demo1301.runtimeconfig.json" target="lib\net8.0\demo1301.runtimeconfig.json" />
+    <file src="C:\Users\Class_Student\source\repos\demo1301\demo1301\bin\Debug\net8.0\demo1301.dll" target="lib\net8.0\demo1301.dll" />
+  </files>
+</package>
