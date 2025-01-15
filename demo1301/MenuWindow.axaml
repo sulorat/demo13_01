@@ -9,24 +9,25 @@
 	<DockPanel>
 		<Border DockPanel.Dock="Top">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<TextBox Name="SearchTextBox" Margin="10"/>
-				<ComboBox Name="FilterComboBox" Margin="10"/>
-				<ComboBox Name="SortComboBox" Margin="10"/>
+				<TextBox Name="SearchTextBox" TextChanged="SearchingTextBox" Width="150" Margin="10"/>
+				<ComboBox Name="FilterComboBox" SelectionChanged="FilterChanging" Margin="10"/>
+				<ComboBox Name="SortComboBox" SelectionChanged="SortChanging" Margin="10"/>
 			</StackPanel>
 		</Border>
 		<Border DockPanel.Dock="Bottom">
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-				<Button/>
+				<TextBlock Name="StatisticTextBlock" Width="300"/>
+				<Button Name="DeleteButton" IsVisible="False" Width="100" Content="Удалить" Click="DeletingService"/>
 			</StackPanel>
 		</Border>
 		<Border DockPanel.Dock="Left">
-			<ListBox Name="ServiceListBox">
+			<ListBox Name="ServiceListBox" SelectionChanged="SelectedServiceListBox">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<Border>
 							<StackPanel Orientation="Horizontal">
 								<Border>
-									<Image></Image>
+									<Image Width="100"></Image>
 								</Border>
 								<Border>
 									<StackPanel >

@@ -3637,19 +3637,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Class_Student\\.nuget\\packages\\": {}
+    "C:\\Users\\prdb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Class_Student\\source\\repos\\demo1301\\demo1301\\demo1301.csproj",
+      "projectUniqueName": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj",
       "projectName": "demo1301",
-      "projectPath": "C:\\Users\\Class_Student\\source\\repos\\demo1301\\demo1301\\demo1301.csproj",
-      "packagesPath": "C:\\Users\\Class_Student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Class_Student\\source\\repos\\demo1301\\demo1301\\obj\\",
+      "projectPath": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj",
+      "packagesPath": "C:\\Users\\prdb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Class_Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\prdb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
