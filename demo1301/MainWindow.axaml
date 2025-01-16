@@ -13,7 +13,7 @@
 			<TextBlock Text="Имя" Margin="10"/>
 			<TextBox Width="150"/>
 			<TextBlock Text="Пароль" Margin="10" />
-			<TextBox Width="150" Name="PasswordTextBox"/>
+			<TextBox Width="150"  Name="PasswordTextBox"/>
 
 			<StackPanel>
 				<Button Name="ToMenuWindowButton" Click="ToMenuClickButton" Content="Войти" Margin="40"/>

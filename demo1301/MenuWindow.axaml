@@ -18,6 +18,7 @@
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 				<TextBlock Name="StatisticTextBlock" Width="300"/>
 				<Button Name="DeleteButton" IsVisible="False" Width="100" Content="Удалить" Click="DeletingService"/>
+				<Button Name="EditButton" IsVisible="False" Width="100" Content="Редактировать" Click="EditService"/>
 			</StackPanel>
 		</Border>
 		<Border DockPanel.Dock="Left">

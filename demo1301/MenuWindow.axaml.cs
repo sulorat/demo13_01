@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media.Imaging;
 using demo1301.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,8 +18,10 @@ public partial class MenuWindow : Window
         public string ServiceCost { get => string.Format("{0} рублей", this.Cost); }
         public string ServiceDuration { get => string.Format("за {0} секунд",this.Durationinseconds); }
         public string ServiceDiscount { get => string.Format("{0}%", this.Discount); }
+        public string? ServiceDescription { get=>this.Description; }
         public float? DiscountAsFloat { get => this.Discount*100; }
         public decimal CostAsDecimal { get=>this.Cost; } 
+        public Bitmap ChangeImage { get; set; }
 
     }
     public List<ServicePresenter> _services { get; set; }
@@ -123,11 +126,27 @@ public partial class MenuWindow : Window
     {
         selectedService = (ServicePresenter)(sender as ListBox).SelectedItem;
         DeleteButton.IsVisible = true;
+        EditButton.IsVisible = true;
     }
     private void DeletingService(object? sender, RoutedEventArgs e)
     {
         _services.Remove(selectedService);
         DisplayService();
+    }
+    private async void EditService(object? sender, RoutedEventArgs e)
+    {
+        var editWindow = new AddOrEditWindow(selectedService);
+
+        var result = await editWindow.ShowDialog<ServicePresenter>(this);
+        if (result != null)
+        {
+            selectedService.Title = result.Title;
+            selectedService.Cost = result.Cost;
+            selectedService.Description = result.Description;
+            selectedService.Cost = result.Cost;
+
+            DisplayService();
+        }
     }
 
 }
