@@ -3,7 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
+using demo1301.Helpers;
 using demo1301.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,16 +14,32 @@ namespace demo1301;
 
 public partial class MenuWindow : Window
 {
+    public bool IsAdmin = false;
     public class ServicePresenter : Service
     {
+        public Bitmap? ServicePhoto
+        {
+            get
+            {
+                if(ChangeImage != null)
+                {
+                    return ChangeImage;
+                }
+                if (!string.IsNullOrEmpty(this.Mainimagepath))
+                {
+                    return ImageHelper.LoadFromResource(new Uri($"avares://demo1301/Assets/{this.Mainimagepath}"));
+                }
+                return null;
+            }
+        }
         public string ServiceTitle { get => this.Title; }
         public string ServiceCost { get => string.Format("{0} рублей", this.Cost); }
         public string ServiceDuration { get => string.Format("за {0} секунд",this.Durationinseconds); }
         public string ServiceDiscount { get => string.Format("{0}%", this.Discount); }
         public string? ServiceDescription { get=>this.Description; }
         public float? DiscountAsFloat { get => this.Discount*100; }
-        public decimal CostAsDecimal { get=>this.Cost; } 
-        public Bitmap ChangeImage { get; set; }
+        public decimal CostAsDecimal { get=>this.Cost; }
+        public Bitmap ChangeImage { get; set; } = null;
 
     }
     public List<ServicePresenter> _services { get; set; }
@@ -38,21 +56,34 @@ public partial class MenuWindow : Window
 
         InitializeComponent();
 
-        using(var dbContext = new User3Context())
+    }
+    public MenuWindow(bool isAdmin)
+    {
+
+        InitializeComponent();
+        IsAdmin = isAdmin;
+        if(IsAdmin == false)
         {
-            _services = dbContext.Services.Select(service=>new ServicePresenter
+            AddButton.IsVisible = false;
+        }
+
+        using (var dbContext = new User3Context())
+        {
+            _services = dbContext.Services.Select(service => new ServicePresenter
             {
-                Title= service.Title,
-                Cost= service.Cost,
-                Durationinseconds= service.Durationinseconds,
-                Discount= service.Discount,
+                Mainimagepath = service.Mainimagepath,
+                Title = service.Title,
+                Cost = service.Cost,
+                Durationinseconds = service.Durationinseconds,
+                Discount = service.Discount,
 
             }).ToList();
         }
+
         _servisecDisplay = new ObservableCollection<ServicePresenter>(_services);
         ServiceListBox.ItemsSource = _servisecDisplay;
-        SortComboBox.ItemsSource=sortValues;
-        FilterComboBox.ItemsSource=filterValues;
+        SortComboBox.ItemsSource = sortValues;
+        FilterComboBox.ItemsSource = filterValues;
         StatisticTextBlock.Text = string.Format("Показано {0} из {1}", _services.Count, _services.Count);
     }
 
@@ -125,13 +156,17 @@ public partial class MenuWindow : Window
     private void SelectedServiceListBox(object? sender, SelectionChangedEventArgs e)
     {
         selectedService = (ServicePresenter)(sender as ListBox).SelectedItem;
-        DeleteButton.IsVisible = true;
-        EditButton.IsVisible = true;
+        if (IsAdmin == true) 
+        {
+            DeleteButton.IsVisible = true;
+            EditButton.IsVisible = true;
+        }
     }
     private void DeletingService(object? sender, RoutedEventArgs e)
     {
-        _services.Remove(selectedService);
-        DisplayService();
+            _services.Remove(selectedService);
+            DisplayService();
+        
     }
     private async void EditService(object? sender, RoutedEventArgs e)
     {
@@ -145,6 +180,18 @@ public partial class MenuWindow : Window
             selectedService.Description = result.Description;
             selectedService.Cost = result.Cost;
 
+            DisplayService();
+        }
+    }
+
+    private async void AddService(object? sender, RoutedEventArgs e)
+    {
+        var addWindow = new AddOrEditWindow();
+
+        var result = await addWindow.ShowDialog<ServicePresenter>(this);
+        if (result != null)
+        {
+            _services.Add(result);
             DisplayService();
         }
     }

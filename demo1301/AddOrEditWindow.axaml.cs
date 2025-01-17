@@ -13,9 +13,14 @@ public partial class AddOrEditWindow : Window
 {
 
     public ServicePresenter Service = new ServicePresenter();
+   
     public AddOrEditWindow()
     {
         InitializeComponent();
+
+      
+        titleOfWindow.Text = "Окно добавления";
+        SaveButton.Content = "Добавить";
     }
 
     public AddOrEditWindow(ServicePresenter? service)
@@ -23,11 +28,12 @@ public partial class AddOrEditWindow : Window
         InitializeComponent();
         Service = service;
         titleOfWindow.Text = "Окно Редактирования";
+        PhotoService.Source = service.ServicePhoto;
         TitleTextBox.Text = service.Title;
         DiscountTextBox.Text = service.Discount.ToString();
+        DurationTextBox.Text = service.ServiceDuration.ToString();
         DescriptionTextBox.Text = service.Description;
         CostTextBox.Text = service.Cost.ToString();
-        SaveButton.Content = "Сохранить";
     }
     private void SaveButton_Click(object? sender, RoutedEventArgs e)
     {
@@ -41,7 +47,10 @@ public partial class AddOrEditWindow : Window
             Service.Discount = discount;
         }
         Service.Description = DescriptionTextBox.Text;
-        Service.Mainimagepath = Service.Mainimagepath;
+        if (int.TryParse(DurationTextBox.Text, out int duration))
+        {
+            Service.Durationinseconds = duration;
+        }
         this.Close(Service);
     }
 
@@ -63,4 +72,8 @@ public partial class AddOrEditWindow : Window
             Service.ChangeImage = new Bitmap(result[0]);
         }
     }
+
+    
+
+
 }

@@ -19,6 +19,7 @@
 				<TextBlock Name="StatisticTextBlock" Width="300"/>
 				<Button Name="DeleteButton" IsVisible="False" Width="100" Content="Удалить" Click="DeletingService"/>
 				<Button Name="EditButton" IsVisible="False" Width="100" Content="Редактировать" Click="EditService"/>
+				<Button Name="AddButton"  Width="100" Content="Добавить" Click="AddService"/>
 			</StackPanel>
 		</Border>
 		<Border DockPanel.Dock="Left">
@@ -28,7 +29,7 @@
 						<Border>
 							<StackPanel Orientation="Horizontal">
 								<Border>
-									<Image Width="100"></Image>
+									<Image Width="100" Height="70" Source="{Binding ServicePhoto}"></Image>
 								</Border>
 								<Border>
 									<StackPanel >

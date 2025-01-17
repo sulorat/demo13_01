@@ -12,9 +12,19 @@ namespace demo1301
 
         private void ToMenuClickButton(object? sender, RoutedEventArgs e)
         {
-            var menuWin = new MenuWindow();
-            menuWin.Show();
-            this.Hide();
+            if (PasswordTextBox.Text == "0000")
+            {
+                MenuWindow menuWindow = new MenuWindow(true);
+                menuWindow.Show();
+                this.Hide();
+            }
+            else
+            {
+                var menuWin = new MenuWindow(false);
+                menuWin.Show();
+                this.Hide();
+            }
+
         }
     }
 }

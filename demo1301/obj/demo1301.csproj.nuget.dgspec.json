@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Class_Student\\source\\repos\\demo13_01\\demo13_01\\demo1301\\demo1301.csproj": {}
+    "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Class_Student\\source\\repos\\demo13_01\\demo13_01\\demo1301\\demo1301.csproj": {
+    "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Class_Student\\source\\repos\\demo13_01\\demo13_01\\demo1301\\demo1301.csproj",
+        "projectUniqueName": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj",
         "projectName": "demo1301",
-        "projectPath": "C:\\Users\\Class_Student\\source\\repos\\demo13_01\\demo13_01\\demo1301\\demo1301.csproj",
-        "packagesPath": "C:\\Users\\Class_Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Class_Student\\source\\repos\\demo13_01\\demo13_01\\demo1301\\obj\\",
+        "projectPath": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\demo1301.csproj",
+        "packagesPath": "C:\\Users\\prdb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prdb\\Source\\Repos\\demo13_01\\demo1301\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Class_Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\prdb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
